@@ -1,7 +1,9 @@
-<<<<<<< HEAD
 <?php
 session_start();
+
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,13 +24,14 @@ session_start();
             <legend>Login</legend>
 
             <?php
-            if (isset($_GET['error'])) {
-                if ($_GET['error'] === 'invalid') {
-                    echo '<div class="error-message">Invalid username or password</div>';
-                } elseif ($_GET['error'] === 'empty') {
-                    echo '<div class="error-message">All fields are required</div>';
+                if(isset($_SESSION['errors']) && !empty($_SESSION['errors'])){
+                    echo '<div class="error-message">';
+                    foreach($_SESSION['errors'] as $error){
+                        echo "<p>$error</p>";
+                    }
+                    echo '</div>';
+                    unset($_SESSION['errors']); // Clear errors after showing
                 }
-            }
             ?>
 
             <table>
@@ -47,7 +50,7 @@ session_start();
                 <tr>
                     <td colspan='2'>
                         <div class="password-field">
-                            <input type="password" id="password" name="password" placeholder="Enter Password">
+                            <input type="password" id="password" name="password" placeholder="Enter Password" autocomplete="current-password">
                             <span class="toggle-password" data-target="password">
                                 <i class="fa-solid fa-eye"></i>
                             </span>
@@ -81,65 +84,3 @@ session_start();
 <script src="../assets/showpassword.js"></script>
 </body>
 </html>
-=======
-
-<?php
-    session_start();
-    //print_r($_SESSION);
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Login Page</title>
-<link rel="stylesheet" href="../assets/style_login.css">
-</head>
-<body>
-    <div class="login-container">
-        <form action="../controllers/loginCheck.php" method="post">
-            <fieldset>
-                <legend>Login</legend>
-                <table>
-                    <tr>
-                        <td>USERNAME/EMAIL:</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="text" name="username" value="">
-                        </td>
-                    </tr>
-
-
-                    <tr>
-                        <td>PASSWORD:</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="password" name="password" value="">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <input type="checkbox" name="remember_me"> <label> Remember me</label>
-                        </td>
-                        <td><a href="forgotpassword.php"> Forgot Password?</a></td>
-                    </tr>
-
-                    <tr>
-                        <td></td>
-                        <td><input type="submit" name="submit" value="Sign In"></td>
-                    </tr>
-
-                    <tr>
-                        <td>Don't Have an Account?</td>
-                        <td><a href="signup.php"> Sign Up</a></td>
-                    </tr>
-                </table>
-            </fieldset>
-        </form>
-    </div>
-</body>
-</html>
->>>>>>> 398e55f6f2dbf4b37aaf57e9117711dbcccecfcd

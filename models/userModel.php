@@ -14,10 +14,12 @@ function login($user){
     if(mysqli_num_rows($result) == 1){
         $row = mysqli_fetch_assoc($result);
 
-        // 🔴 HASH CHECK DISABLED (TEST ONLY)
+        // 🔴 HASHED PASSWORD CHECK (ENABLE LATER)
         // if(password_verify($password, $row['Password'])){
+        //     return $row;
+        // }
 
-        // ✅ PLAIN TEXT CHECK
+        // ✅ PLAIN TEXT CHECK (TESTING)
         if ($password === $row['Password']) {
             return $row; // return full user info
         }
@@ -29,14 +31,15 @@ function login($user){
 function addUser($user){
     $con = getConnection();
 
-    // 🔴 HASHING DISABLED (TEST ONLY)
+    // 🔴 HASH PASSWORD (ENABLE LATER)
     // $hashedPassword = password_hash($user['password'], PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO User (Name, Username, Password, Email, DOB, Gender, Address, Status, Role)
             VALUES (
                 '{$user['name']}',
                 '{$user['username']}',
-                '{$user['password']}',   -- plain text password
+                '{$user['password']}',   -- plain text for now
+                -- '$hashedPassword',    -- uncomment to use hash
                 '{$user['email']}',
                 '{$user['dob']}',
                 '{$user['gender']}',
@@ -81,10 +84,11 @@ function verifyResetCode($email, $code){
 function updatePassword($email, $newPassword){
     $con = getConnection();
 
-    // 🔴 HASHING DISABLED (TEST ONLY)
+    // 🔴 HASH PASSWORD (ENABLE LATER)
     // $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
 
     $sql = "UPDATE User SET Password='$newPassword' WHERE Email='$email'";
+    // $sql = "UPDATE User SET Password='$hashedPassword' WHERE Email='$email'"; // uncomment for hash
     return mysqli_query($con, $sql);
 }
 

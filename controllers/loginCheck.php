@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
 session_start();
 require_once('../models/userModel.php');
 
@@ -11,26 +10,29 @@ if(isset($_POST['submit'])) {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
 
-    // Initialize error array
     $errors = [];
 
-    // Field validation
-    if($username == ""){
-        $errors['username'] = "Username/Email is required.";
+    // If all fields empty
+    if($username=='' && $password==''){
+        $errors[] = "All fields are required.";
     }
-    if($password == ""){
-        $errors['password'] = "Password is required.";
+    else if($username == ''){
+        $errors[] = "Username/Email is required.";
+    }
+    else if($password == ''){
+        $errors[] = "Password is required.";
     }
 
-    // If there are errors, redirect back to login page
     if(!empty($errors)){
         $_SESSION['errors'] = $errors;
         header("Location: ../views/login.php");
         exit();
     }
 
-    // Attempt login
     $userArray = ['username'=>$username, 'password'=>$password];
+
+    // 🔴 Uncomment below line to enable hash verification
+    // $userArray['password'] = $password; // keep plain for testing
     $user = login($userArray);
 
     if($user){
@@ -51,8 +53,7 @@ if(isset($_POST['submit'])) {
         }
         exit();
     } else {
-        // Invalid login
-        $_SESSION['errors'] = ['login' => 'Invalid username/email or password.'];
+        $_SESSION['errors'] = ['Invalid username/email or password.'];
         header("Location: ../views/login.php");
         exit();
     }
@@ -62,29 +63,3 @@ if(isset($_POST['submit'])) {
     exit();
 }
 ?>
-=======
-    session_start();
-    if(isset($_POST['submit'])){
-        $username = $_REQUEST['username'];
-        $password = $_REQUEST['password'];
-
-        if($username == "null" || $password == ""){
-            echo "null value!";
-        }else{
-
-            //if($username == $_SESSION['user']['username'] && $password == $_SESSION['user']['password']){
-              if($username==$password){  
-                setcookie('status', 'true', time()+3000, '/');
-                //$_SESSION['status'] = true;
-                $_SESSION['username'] = $username;
-
-                header('location: ../views/patientdashboard.php');
-            }else{
-                echo "invalid user!";
-            }
-        }
-    }else{
-        header('location: ../views/login.php');
-    }
-?>
->>>>>>> 398e55f6f2dbf4b37aaf57e9117711dbcccecfcd
