@@ -1,0 +1,234 @@
+<<<<<<< HEAD
+/* ================================
+   Global Styles
+================================ */
+=======
+/* Center the content on the page */
+>>>>>>> 398e55f6f2dbf4b37aaf57e9117711dbcccecfcd
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+<<<<<<< HEAD
+    background-color: #F5FFF8;
+}
+
+/* Header */
+.signup-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.signup-header .logo {
+    width: 80px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.signup-header h1 {
+    font-size: 32px;
+    color: #386D44;
+    margin-bottom: 5px;
+}
+
+.signup-header .tagline {
+    font-size: 14px;
+    color: #57A469;
+}
+
+/* Center container */
+.signup-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Signup Card */
+.signup-form {
+    background-color: #D9D9D9;
+    border: none;
+    padding: 30px 25px;
+    border-radius: 12px;
+    width: 420px;
+    max-width: 420px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* Legend */
+fieldset legend {
+    font-size: 20px;
+    font-weight: bold;
+    color: #386D44;
+}
+
+/* Table */
+table {
+    width: 100%;
+}
+
+td {
+    padding: 8px 0;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+/* Radio buttons */
+input[type="radio"] {
+    margin-right: 6px;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: #386D44;
+=======
+}
+
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+}
+
+.signup-form {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    width: 350px; /* Adjust the form width as needed */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 5px;
+}
+
+td {
+    padding: 5px;
+    vertical-align: top;
+}
+
+/* Input and textarea styling */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Submit button styling */
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 2px solid #386D44;
+    border-radius: 5px;
+    background-color: #DEDEDE;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #386D44;
+}
+
+/* Links styling */
+a {
+    text-decoration: none;
+    color: #ff0000ff;
+>>>>>>> 398e55f6f2dbf4b37aaf57e9117711dbcccecfcd
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+<<<<<<< HEAD
+/* Button */
+input.btn {
+    width: 50%;
+    background-color: #DEDEDE;
+    color: #000;
+    border: 3px solid #386D44;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    display: block;
+    margin: 15px auto 0 auto;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+input.btn:hover {
+    background-color: #386D44;
+    color: #ffffff;
+}
+
+/* Textarea */
+textarea {
+    resize: vertical;      
+    max-width: 100%;    
+    min-height: 80px;
+}
+
+input:invalid, textarea:invalid {
+    border-color: #D8000C;
+}
+
+/* Inline error messages */
+.error-msg {
+    color: #D8000C;         
+    font-size: 13px;           
+    margin-top: -5px;          
+    margin-bottom: 8px;        
+    display: block;            
+}
+
+.password-field {
+    position: relative;
+}
+
+.password-field i {
+    position: absolute;
+    right: 10px;
+    top: 38%;
+    cursor: pointer;
+    color: #555;
+}
+
+.password-field i:hover {
+    color: #000;
+=======
+/* Radio button spacing */
+input[type="radio"] {
+    margin-right: 5px;
+>>>>>>> 398e55f6f2dbf4b37aaf57e9117711dbcccecfcd
+}
