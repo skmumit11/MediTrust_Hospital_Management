@@ -1,6 +1,21 @@
-<?php 
+
+<?php
 session_start();
+
+$old = [
+    'fullname' => '',
+    'username' => '',
+    'email'    => '',
+    'dob'      => '',
+    'gender'   => '',
+    'address'  => ''
+];
+
+if(isset($_SESSION['old']) && is_array($_SESSION['old'])){
+    $old = array_merge($old, $_SESSION['old']);
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,117 +37,126 @@ session_start();
     <form name="signupForm" class="signup-form" action="../controllers/signupCheck.php" method="post" onsubmit="return validateSignupForm();">
         
         <!-- Display errors -->
-        <?php
-        if(isset($_SESSION['errors']) && !empty($_SESSION['errors'])){
-            echo '<div class="error-message">';
-            foreach($_SESSION['errors'] as $error){
-                echo "<p>$error</p>";
+        
+ <fieldset>
+            <legend>Sign Up</legend>
+
+            <?php
+            if(isset($_SESSION['errors']) && !empty($_SESSION['errors'])){
+                echo '<div class="error-message">';
+                foreach($_SESSION['errors'] as $error){
+                    echo "<p>$error</p>";
+                }
+                echo '</div>';
+                unset($_SESSION['errors']);
             }
-            echo '</div>';
-            unset($_SESSION['errors']);
-        }
-        ?>
-        <fieldset>
-            <legend>Signup Page</legend>
+            ?>
+
             <table>
-                <!-- Full Name -->
-                <tr><td>FULL NAME:</td></tr>
                 <tr>
-                    <td>
-                        <input type="text" name="fullname" placeholder="ENTER FULL NAME" value="<?php echo $_SESSION['old']['fullname'] ?? ''; ?>">
-                        <span class="error-msg" id="fullnameError"></span>
-                    </td>
+                    <td>FULL NAME:</td>
                 </tr>
-                
-                <!-- Username -->
-                <tr><td>USERNAME:</td></tr>
                 <tr>
-                    <td>
-                        <input type="text" name="username" placeholder="ENTER UNIQUE USERNAME" value="<?php echo $_SESSION['old']['username'] ?? ''; ?>">
-                        <span class="error-msg" id="usernameError"></span>
-                    </td>
-                </tr>
-                
-                <!-- Email -->
-                <tr><td>EMAIL:</td></tr>
-                <tr>
-                    <td>
-                        <input type="email" name="email" placeholder="example@email.com" value="<?php echo $_SESSION['old']['email'] ?? ''; ?>">
-                        <span class="error-msg" id="emailError"></span>
-                    </td>
-                </tr>
-                
-                <!-- DOB -->
-                <tr><td>DATE OF BIRTH:</td></tr>
-                <tr>
-                    <td>
-                        <input type="date" name="dob" value="<?php echo $_SESSION['old']['dob'] ?? ''; ?>">
-                        <span class="error-msg" id="dobError"></span>
-                    </td>
-                </tr>
-                
-                <!-- Gender -->
-                <tr><td>GENDER:</td></tr>
-                <tr>
-                    <td>
-                        <input type="radio" name="gender" value="Male" <?php if(isset($_SESSION['old']['gender']) && $_SESSION['old']['gender']=='Male') echo 'checked'; ?>> Male <br>
-                        <input type="radio" name="gender" value="Female" <?php if(isset($_SESSION['old']['gender']) && $_SESSION['old']['gender']=='Female') echo 'checked'; ?>> Female <br>
-                        <input type="radio" name="gender" value="Other" <?php if(isset($_SESSION['old']['gender']) && $_SESSION['old']['gender']=='Other') echo 'checked'; ?>> Other <br>
-                        <span class="error-msg" id="genderError"></span>
-                    </td>
-                </tr>
-                
-                <!-- Address -->
-                <tr><td>ADDRESS:</td></tr>
-                <tr>
-                    <td>
-                        <textarea name="address" rows="4" cols="30" placeholder="Enter your address"><?php echo $_SESSION['old']['address'] ?? ''; ?></textarea>
-                        <span class="error-msg" id="addressError"></span>
-                    </td>
-                </tr>
-                
-                <!-- Password -->
-                <tr><td>PASSWORD:</td></tr>
-                <tr>
-                    <td class="password-field">
-                        <input type="password" name="password" id="password" placeholder="ENTER PASSWORD">
-                        <span class="toggle-password" data-target="password">
-                            <i class="fa-solid fa-eye"></i>
-                        </span>
-                        <span class="error-msg" id="passwordError"></span>
+                    <td colspan="2">
+                        <input type="text" name="fullname" value="<?php echo htmlspecialchars($old['fullname']); ?>" placeholder="Enter Full Name">
+                        <span id="fullnameError" class="error-msg"></span>
                     </td>
                 </tr>
 
-                <!-- Confirm Password -->
-                <tr><td>CONFIRM PASSWORD:</td></tr>
                 <tr>
-                    <td class="password-field">
-                        <input type="password" name="confirmpassword" id="confirmpassword" placeholder="CONFIRM PASSWORD">
-                        <span class="toggle-password" data-target="confirmpassword">
-                            <i class="fa-solid fa-eye"></i>
-                        </span>
-                        <span class="error-msg" id="confirmpasswordError"></span>
+                    <td>USERNAME:</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="text" name="username" value="<?php echo htmlspecialchars($old['username']); ?>" placeholder="Enter Username">
+                        <span id="usernameError" class="error-msg"></span>
                     </td>
                 </tr>
 
-                <!-- Submit -->
                 <tr>
-                    <td colspan="2"><input type="submit" class="btn" name="submit" value="Sign up"></td>
+                    <td>EMAIL:</td>
                 </tr>
-                
-                <!-- Login Link -->
                 <tr>
-                    <td colspan="2">Already Have an Account? <a href="login.php">Log In</a></td>
+                    <td colspan="2">
+                        <input type="text" name="email" value="<?php echo htmlspecialchars($old['email']); ?>" placeholder="Enter Email">
+                        <span id="emailError" class="error-msg"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>DATE OF BIRTH:</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="date" name="dob" value="<?php echo htmlspecialchars($old['dob']); ?>">
+                        <span id="dobError" class="error-msg"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>GENDER:</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <select name="gender">
+                            <option value="">-- Select --</option>
+                            <option value="Male"   <?php echo ($old['gender'] === 'Male') ? 'selected' : ''; ?>>Male</option>
+                            <option value="Female" <?php echo ($old['gender'] === 'Female') ? 'selected' : ''; ?>>Female</option>
+                            <option value="Other"  <?php echo ($old['gender'] === 'Other') ? 'selected' : ''; ?>>Other</option>
+                        </select>
+                        <span id="genderError" class="error-msg"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>ADDRESS:</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="text" name="address" value="<?php echo htmlspecialchars($old['address']); ?>" placeholder="Enter Address">
+                        <span id="addressError" class="error-msg"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>PASSWORD:</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="password" name="password" placeholder="Enter Password">
+                        <span id="passwordError" class="error-msg"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>CONFIRM PASSWORD:</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="password" name="confirmpassword" placeholder="Confirm Password">
+                        <span id="confirmpasswordError" class="error-msg"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" class="btn" name="submit" value="Sign Up">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Already have an account?</td>
+                    <td><a href="login.php">Log In</a></td>
                 </tr>
             </table>
         </fieldset>
     </form>
-    <button class="btn-back" onclick="window.location.href='home.php'">Back Home</button>
 
 </div>
 
 
-<script src="../assets/signupValidate.js"></script>
+
+<script src="../assets/signupValidation.js"></script>
 <script src="../assets/showpassword.js"></script>
 
 </body>

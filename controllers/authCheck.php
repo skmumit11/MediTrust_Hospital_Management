@@ -1,14 +1,10 @@
+
 <?php
-//session_start();
-
-// Redirect if neither session nor cookie exists
-if (!isset($_SESSION['username']) && !isset($_COOKIE['username'])) {
-    header('Location: ../views/login.php');
-    exit();
+if(!isset($_SESSION)){
+    session_start();
 }
-
-// Restore session from cookie if needed
-if (!isset($_SESSION['username']) && isset($_COOKIE['username'])) {
-    $_SESSION['username'] = $_COOKIE['username'];
+if(!isset($_SESSION['username']) && !isset($_COOKIE['username'])){
+    header("Location: ../views/login.php");
+    exit();
 }
 ?>

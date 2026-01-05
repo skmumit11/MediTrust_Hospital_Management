@@ -51,6 +51,7 @@ html, body {
     padding: 14px 20px;
     color: #fff;
     text-decoration: none;
+    /* align-self: center; */
 }
 
 .sidebar-menu a:hover {
@@ -61,8 +62,8 @@ html, body {
 
 /* Hover effect for Logout */
 .sidebar-menu a.logout:hover {
-    background-color: #ff413a;
-    color: #fff;
+    background-color: #ff8d89;
+    color: #ff0000;
 }
 
 
@@ -72,7 +73,7 @@ html, body {
     top: 0;
     left: 0;
     right: 0;
-    height: 62px;
+    height: 61px;
     background: #386D44;
     display: flex;
     justify-content: space-between;
@@ -109,6 +110,23 @@ html, body {
     text-align: center;
     padding: 20px;
     
+}
+
+button.btn {
+    background-color: #DEDEDE;
+    border: 2px solid #386D44;
+    color: #000000;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: 0.3s;
+    margin-top: 30px;
+}
+
+button.btn:hover {
+    background-color: #386D44;
+    color: #ffffff;
 }
 
 /* ================= RESPONSIVE =================

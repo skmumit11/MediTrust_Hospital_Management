@@ -1,17 +1,14 @@
-<!-- SIDEBAR -->
 <div class="sidebar" id="sidebar">
     <div class="sidebar-header">
         <!-- <span class="logo-text">MediTrust</span> -->
         <!-- Sidebar toggle button inside sidebar -->
         <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
     </div>
-        <nav class="sidebar-menu">
-            <a href="home.php">🏠 Home</a>
-            <a href="doctors.php">👨‍⚕️ Doctors</a>
-            <a href="services.php">📅 Services</a>
-            <a href="login.php">🔐 Login</a>
-        </nav>
 
+    <nav class="sidebar-menu">
+        <a href="home.php">🏠 Home</a>
+        <a href="../controllers/logoutCheck.php" class="logout">Logout</a>
+    </nav>
 </div>
 
 <!-- TOPBAR / HEADER -->
@@ -24,4 +21,3 @@
         <button class="menu-btn" onclick="toggleSidebar()">☰</button>
     </div>
 </header>
-

@@ -1,52 +1,19 @@
+
 /* ================= GLOBAL STYLES ================= */
 body, html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     background-color: #F5FFF8;
+    color: #000;
 }
-/* ================= MAIN CONTENT ================= */
+
+/* Helpful base */
+* {
+    box-sizing: border-box;
+}
 
 /* ================= HERO SECTION ================= */
-
-/* .hero-container {
-    width: 98%;
-    height: 320px;
-    margin: 30px auto;
-    background: rgba(195, 192, 192, 0.095); 
-    backdrop-filter: blur(14px); 
-    -webkit-backdrop-filter: blur(14px); 
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.hero-container h1 {
-    font-size: 42px;
-    margin-bottom: 15px;
-    color: #386D44; 
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.hero-subtitle {
-    font-size: 20px;
-    font-weight: 600;
-    color: #386D44;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-    margin-bottom: 10px;
-}
-
-.hero-container p {
-    font-size: 16px;
-    color:  #57A469;; 
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-} */
-
 .hero-container {
     width: 98%;
     height: 320px;
@@ -59,6 +26,7 @@ body, html {
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding: 20px;
 }
 
 .hero-container h1 {
@@ -80,7 +48,7 @@ body, html {
 .cta-container {
     max-width: 850px;
     width: 90%;
-    height: 70px;
+    min-height: 70px;
     background-color: #D9D9D9;
     margin: 20px auto;
     border-radius: 12px;
@@ -89,7 +57,10 @@ body, html {
     justify-content: center;
     align-items: center;
     gap: 20px;
+    padding: 10px;
 }
+
+/* Works for BOTH button and anchor */
 
 button.btn {
     background-color: #DEDEDE;
@@ -107,6 +78,43 @@ button.btn:hover {
     color: #ffffff;
 }
 
+/* ================= BUTTONS (button + anchor) ================= */
+.btn,
+button.btn,
+a.btn {
+    background-color: #DEDEDE;
+    border: 2px solid #386D44;
+    color: #000000;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn:hover,
+button.btn:hover,
+a.btn:hover {
+    background-color: #386D44;
+    color: #ffffff;
+}
+
+/* ================= SMALL BUTTONS ================= */
+.btn-sm,
+button.btn-sm,
+a.btn-sm {
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 7px;
+    border-width: 2px;
+}
+
+
+
+
 /* ================= DASHBOARD CARDS ================= */
 .dashboard {
     display: flex;
@@ -114,6 +122,7 @@ button.btn:hover {
     gap: 20px;
     margin: 40px 0;
     flex-wrap: wrap;
+    padding: 0 10px;
 }
 
 .card {
@@ -127,6 +136,7 @@ button.btn:hover {
 
 .card h3 {
     margin-bottom: 10px;
+    color: #386D44;
 }
 
 .card p {
@@ -146,14 +156,21 @@ button.btn:hover {
     text-align: center;
 }
 
+.services h2 {
+    color: #386D44;
+    margin-top: 0;
+}
+
 .services-table {
     width: 100%;
     table-layout: fixed;
+    border-collapse: collapse;
 }
 
 .services-table td {
     padding: 10px;
     word-wrap: break-word;
+    border-radius: 8px;
 }
 
 .services-table td:hover {
@@ -162,4 +179,143 @@ button.btn:hover {
     transition: 0.3s;
 }
 
+/* =====================================================
+   NEW: COMMON PAGE CONTAINERS (Doctors, Appointment, etc.)
+===================================================== */
+.page-wrap {
+    width: 90%;
+    max-width: 1000px;
+    margin: 25px auto;
+}
 
+.page-card {
+    background-color: #D9D9D9;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    padding: 20px;
+}
+
+.page-title {
+    margin: 0 0 15px 0;
+    color: #386D44;
+}
+
+/* =====================================================
+   NEW: ALERTS (Success / Error)
+===================================================== */
+.alert {
+    padding: 12px 14px;
+    border-radius: 10px;
+    margin: 12px 0;
+    border: 2px solid transparent;
+    font-weight: 600;
+}
+
+.alert-success {
+    background: #e7f7ec;
+    border-color: #57A469;
+    color: #386D44;
+}
+
+.alert-error {
+    background: #ffecec;
+    border-color: #d96b6b;
+    color: #8a1f1f;
+}
+
+/* =====================================================
+   NEW: TABLE THEME (Doctors list, appointment list)
+===================================================== */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #DEDEDE;
+}
+
+.data-table th, .data-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+
+.data-table th {
+    background-color: #386D44;
+    color: #fff;
+    font-weight: 700;
+}
+
+.data-table tr:hover td {
+    background-color: rgba(87, 164, 105, 0.12);
+}
+
+/* Small action buttons inside table */
+.btn-sm {
+    padding: 6px 10px;
+    font-size: 14px;
+    border-radius: 7px;
+}
+
+/* =====================================================
+   NEW: FORM THEME (Appointment Booking)
+===================================================== */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-weight: 700;
+    color: #386D44;
+}
+
+.form-control {
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 2px solid rgba(56, 109, 68, 0.35);
+    background-color: #F5FFF8;
+    outline: none;
+    font-size: 15px;
+}
+
+.form-control:focus {
+    border-color: #386D44;
+    box-shadow: 0 0 0 3px rgba(56, 109, 68, 0.18);
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media (max-width: 768px) {
+    .hero-container {
+        height: auto;
+    }
+
+    .hero-container h1 {
+        font-size: 28px;
+    }
+
+    .cta-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,9 +1,16 @@
+
 <?php
 session_start();
 
+$prefill = '';
 
+if(isset($_SESSION['old_username'])){
+    $prefill = $_SESSION['old_username'];
+    unset($_SESSION['old_username']);
+} elseif(isset($_COOKIE['remember_identity'])){
+    $prefill = $_COOKIE['remember_identity'];
+}
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,7 +37,7 @@ session_start();
                         echo "<p>$error</p>";
                     }
                     echo '</div>';
-                    unset($_SESSION['errors']); // Clear errors after showing
+                    unset($_SESSION['errors']);
                 }
             ?>
 
@@ -39,8 +46,14 @@ session_start();
                     <td>USERNAME/EMAIL:</td>
                 </tr>
                 <tr>
-                    <td colspan='2'>
-                        <input type="text" name="username" placeholder="Enter Username/Email" autocomplete="username">
+                    <td colspan="2">
+                        <input
+                            type="text"
+                            name="username"
+                            placeholder="Enter Username/Email"
+                            autocomplete="username"
+                            value="<?php echo htmlspecialchars($prefill); ?>"
+                        >
                     </td>
                 </tr>
 
@@ -48,7 +61,7 @@ session_start();
                     <td>PASSWORD:</td>
                 </tr>
                 <tr>
-                    <td colspan='2'>
+                    <td colspan="2">
                         <div class="password-field">
                             <input type="password" id="password" name="password" placeholder="Enter Password" autocomplete="current-password">
                             <span class="toggle-password" data-target="password">
@@ -60,14 +73,14 @@ session_start();
 
                 <tr>
                     <td>
-                        <input type="checkbox" name="remember_me" id="remember_me">
+                        <input type="checkbox" name="remember_me" id="remember_me" <?php echo isset($_COOKIE['remember_identity']) ? 'checked' : ''; ?>>
                         <label for="remember_me">Remember me</label>
                     </td>
                     <td><a href="forgotpassword.php">Forgot Password?</a></td>
                 </tr>
 
                 <tr>
-                    <td colspan='2'>
+                    <td colspan="2">
                         <input type="submit" class="btn" name="submit" value="Log In">
                     </td>
                 </tr>
@@ -78,13 +91,12 @@ session_start();
                 </tr>
             </table>
         </fieldset>
-    </form>  
-    <button class="btn-back" onclick="window.location.href='home.php'">Back Home</button>
+    </form>
 
-</div>
-<div>
+    <button class="btn-back" onclick="window.location.href='home.php'">Back Home</button>
 </div>
 
 <script src="../assets/showpassword.js"></script>
 </body>
 </html>
+

@@ -5,13 +5,14 @@
         <!-- Sidebar toggle button inside sidebar -->
         <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
     </div>
-        <nav class="sidebar-menu">
-            <a href="home.php">🏠 Home</a>
-            <a href="doctors.php">👨‍⚕️ Doctors</a>
-            <a href="services.php">📅 Services</a>
-            <a href="login.php">🔐 Login</a>
-        </nav>
 
+    <nav class="sidebar-menu">
+        <a href="home.php">🏠 Home</a>
+        <a href="requestAmbulance.php"> 🚑 Ambulance</a>
+        <a href="appointment_bookPatient.php">📅 Select Appointments</a>
+        <a href="../controllers/logoutCheck.php" class="logout">Logout</a>
+        <a href="subscriptions.php">💱Subscription</a>
+    </nav>
 </div>
 
 <!-- TOPBAR / HEADER -->
@@ -25,3 +26,9 @@
     </div>
 </header>
 
+
+<!-- FOOTER -->
+<!-- <footer class="footer">
+    <p>© 2025 MediTrust Hospital Management System</p>
+    <p>Contact: support@meditrust.com | +880-XXX-XXXX</p>
+</footer> -->

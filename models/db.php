@@ -1,8 +1,12 @@
+
 <?php
-$host   = "127.0.0.1";   // or 127.0.0.1
+$host   = "127.0.0.1";
 $dbname = "meditrust_db";
 $dbuser = "root";
 $dbpass = "";
+
+// If you want demo data OFF, keep this false
+$USE_DEMO = false;
 
 /**
  * Get MySQL database connection
@@ -18,5 +22,11 @@ function getConnection() {
     }
 
     return $con;
+}
+
+function closeConnection($con) {
+    if($con) {
+        mysqli_close($con);
+    }
 }
 ?>
