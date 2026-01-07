@@ -1,0 +1,117 @@
+/* ---------------- GLOBAL ---------------- */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #F5FFF8;
+    color: #333;
+}
+
+/* ---------------- NAVBAR ---------------- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1E7F5C;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-menu a {
+    color: #fff;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-menu a.logout {
+    background-color: #FF4D4F;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* ---------------- PAGE TITLE ---------------- */
+.page-title {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.page-title h1 {
+    font-size: 28px;
+    color: #1E7F5C;
+}
+
+.page-title p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* ---------------- FORM SECTION ---------------- */
+.form-section {
+    width: 400px;
+    margin: 30px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.form-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-section label {
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+.form-section input {
+    padding: 8px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.form-section button.btn {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #1E7F5C;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.form-section button.btn:hover {
+    background-color: #155A40;
+}
+
+.form-section a.cancel {
+    display: inline-block;
+    margin-top: 10px;
+    text-align: center;
+    background-color: #FF4D4F;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.form-section a.cancel:hover {
+    background-color: #C0392B;
+}
+
+.footer {
+    background-color: #D9D9D9;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    box-shadow: 0 -4px 8px rgba(0,0,0,0.2);
+}
