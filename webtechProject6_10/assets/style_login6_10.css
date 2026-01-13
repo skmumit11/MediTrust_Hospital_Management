@@ -1,0 +1,17 @@
+/* Basic Clean CSS */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    padding: 20px;
+}
+input[type=text], input[type=password], input[type=email] {
+    padding: 5px;
+    margin: 5px 0;
+}
+.btn {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.error-message {
+    color: red;
+}
